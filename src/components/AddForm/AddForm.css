@@ -1,0 +1,7 @@
+.AddForm {
+  display: flex;
+}
+.AddForm__btn {
+  width: 160px;
+  margin-left: 10px;
+}
