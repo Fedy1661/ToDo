@@ -15,7 +15,9 @@ class App extends Component {
         this.createTodoItem('Learn React'),
         this.createTodoItem('Learn JavaScript'),
         this.createTodoItem('Learn Bootstrap')
-      ]
+      ],
+      term: '',
+      filter: 'all'
     };
 
   }
@@ -71,14 +73,44 @@ class App extends Component {
       }
     })
   }
+  search(items, term){
+    if (term.length === 0){
+      return items;
+    }
+    return items.filter((item) => {
+      return item.label.toLowerCase().indexOf(term.toLowerCase()) > -1;
+    })
+  }
+  onSearchChange = (term) => {
+    this.setState({
+      term: term.replace(/^\s*/,'').replace(/\s*$/,'')
+    });
+  }
+  onFilterChange = (filter) => {
+    this.setState({filter});
+  }
+  filter(items, filter) {
+    switch(filter) {
+      case 'all':
+        return items;
+      case 'active':
+        return items.filter((item) => !item.done);
+      case 'done':
+        return items.filter((item) => item.done);
+      default:
+        return items;
+    }
+  }
   render(){
-    const countDone = this.state.items.filter((el) => el.done).length;
+    const {term, items, filter} = this.state;
+    const visibleItems = this.filter(this.search(items, term), filter);
+    const countDone = items.filter((el) => el.done).length;
     return(
       <div>
-        <AppHeader toDo={this.state.items.length - countDone} done={countDone} />
-        <SearchPanel />
-        <TodoList items={this.state.items} onDeleted={ this.deleteItem } onToggleDone={this.onToggleDone} onToggleImportant={this.onToggleImportant}/>
-        <AddForm onAddItem={this.addItem} />
+        <AppHeader toDo={items.length - countDone} done={countDone} />
+        <SearchPanel onFilterChange={this.onFilterChange} filter={filter} onSearchChange={this.onSearchChange} />
+        <TodoList items={visibleItems} onDeleted={ this.deleteItem } onToggleDone={this.onToggleDone} onToggleImportant={this.onToggleImportant}/>
+        <AddForm onFilterChange={this.onFilterChange} filter={filter} onAddItem={this.addItem} />
       </div>
     )
   }

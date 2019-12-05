@@ -15,6 +15,10 @@ class AddForm extends Component{
   onSubmit = (e) => {
     e.preventDefault();
     this.props.onAddItem(this.state.label);
+    if(this.props.filter === 'done'){
+      this.props.onFilterChange('all');
+    }
+
     this.setState(() => {
       return {label: ''}
     });
