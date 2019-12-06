@@ -26,8 +26,8 @@ class AddForm extends Component{
   render(){
     return(
       <form onSubmit={this.onSubmit} className='AddForm mt-1'>
-        <input type='text' className='form-control' onChange={this.onLabelChange} placeholder='What needs to be done' value={this.state.label}/>
-        <button className='AddForm__btn btn btn-outline-secondary'>Add Item</button>
+        <input type='text' className='form-control' onChange={this.onLabelChange} placeholder='Что нужно сделать?' value={this.state.label}/>
+        <button className='AddForm__btn btn btn-outline-secondary'>Добавить</button>
       </form>
     )
   }

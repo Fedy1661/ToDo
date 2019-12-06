@@ -8,7 +8,7 @@ class AppHeader extends Component {
     return(
       <div className='AppHeader'>
         <h1>Todo list</h1>
-        <h2>{toDo} more to do, {done} done</h2>
+        <h2>{toDo} осталось, {done} выполнено</h2>
       </div>
     )
   }

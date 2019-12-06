@@ -4,9 +4,9 @@ import './SearchPanel.css';
 
 class SearchPanel extends Component {
   buttons = [
-    {name: 'all', label: 'All'},
-    {name: 'active', label: 'Active'},
-    {name: 'done', label: 'Done'}
+    {name: 'all', label: 'Все'},
+    {name: 'active', label: 'Активные'},
+    {name: 'done', label: 'Выполненные'}
   ]
   constructor(){
     super();
@@ -32,7 +32,7 @@ class SearchPanel extends Component {
 
     return(
       <div className='SearchPanel'>
-        <input className='SearchPanel__input form-control' placeholder='Type here to search' value={this.state.term} onChange={this.onSearchChange}></input>
+        <input className='SearchPanel__input form-control' placeholder='Поиск' value={this.state.term} onChange={this.onSearchChange}></input>
         <div className='btn-group'>
           {buttons}
         </div>
