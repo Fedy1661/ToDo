@@ -9,3 +9,9 @@
   font-size: 1.2rem;
   color: grey;
 }
+@media (max-width: 575px){
+  .AppHeader{
+    display: block;
+    text-align: center;
+  }
+}

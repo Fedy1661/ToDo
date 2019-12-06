@@ -5,3 +5,9 @@
   width: 450px;
   margin-top: 5px;
 }
+@media (max-width: 575px){
+  .TodoList{
+    width: auto;
+    margin: 5px auto;
+  }
+}

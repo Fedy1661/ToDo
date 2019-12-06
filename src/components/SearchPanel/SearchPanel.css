@@ -6,4 +6,14 @@
   width: auto;
   flex-grow: 1;
   margin-right: 3px;
+  border-radius: 5px;
+}
+@media (max-width: 575px){
+  .SearchPanel{
+    flex-direction: column-reverse;
+    margin: 0 auto;
+  }
+  .SearchPanel__input{
+    margin-top: 5px;
+  }
 }

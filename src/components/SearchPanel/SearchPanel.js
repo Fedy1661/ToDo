@@ -32,7 +32,7 @@ class SearchPanel extends Component {
 
     return(
       <div className='SearchPanel'>
-        <input className='SearchPanel__input' placeholder='Type here to search' value={this.state.term} onChange={this.onSearchChange}></input>
+        <input className='SearchPanel__input form-control' placeholder='Type here to search' value={this.state.term} onChange={this.onSearchChange}></input>
         <div className='btn-group'>
           {buttons}
         </div>
